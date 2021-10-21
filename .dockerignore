@@ -1,0 +1,16 @@
+
+/node_modules/
+/dist
+
+
+/test
+*.spec.ts
+
+
+.eslintrc.js
+.gitignore
+.prettierrc
+
+README.md
+.elasticbeanstalk
+.git
