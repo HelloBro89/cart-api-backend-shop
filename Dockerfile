@@ -12,7 +12,6 @@ RUN npm run build
 
 WORKDIR /app
 
-# ENV PORT=8080
-EXPOSE 8080
+EXPOSE 4000
 
 CMD ["npm", "run", "start"]

@@ -1,16 +1,20 @@
-
+# These folders node_module  and  dist are not needed, because they will be creating on runtime of container
 /node_modules/
 /dist
 
 
+# Tests are not necessary
 /test
 *.spec.ts
 
-
+# Configuration files for development are not necessary also
 .eslintrc.js
-.gitignore
 .prettierrc
 
+# Git files are not necessary
 README.md
-.elasticbeanstalk
+.gitignore
 .git
+
+# Elastic Beanstalk Files
+.elasticbeanstalk
