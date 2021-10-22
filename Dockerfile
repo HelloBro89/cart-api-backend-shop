@@ -1,20 +1,19 @@
-# Base node image
-FROM node:14.17.3-alpine AS base
-WORKDIR /app
+# 103 mb
+FROM node:12-alpine3.13 as base
 
-# Build dependecies
-FROM base AS dependencies
+# Build layer
+FROM base as build
+WORKDIR /build
 COPY package*.json ./
-RUN npm install && npm cache clean --force
-
-# Copy and build files
-FROM dependencies AS build
-WORKDIR /app
+RUN npm i
 COPY . .
-RUN npm run build
+RUN npm run build && npm prune --production
 
-WORKDIR /app
-
+# Release layer
+FROM base
+WORKDIR ../app
+COPY package*.json ./
+COPY --from=build /build/node_modules ./node_modules
+COPY --from=build /build/dist ./dist
 EXPOSE 4000
-
-CMD ["npm", "run", "start"]
+CMD [ "npm", "run", "start:prod" ]

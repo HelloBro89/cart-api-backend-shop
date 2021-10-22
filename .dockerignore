@@ -1,3 +1,6 @@
+# For my testing!
+
+
 # These folders node_module  and  dist are not needed, because they will be creating on runtime of container
 /node_modules/
 /dist
